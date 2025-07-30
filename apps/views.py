@@ -17,6 +17,10 @@ from .services import (
     get_top_rated_tv_shows,
 )
 from .models import Movie, Genre, Watchlist
+
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout
+
 import json
 
 def home(request):
@@ -59,6 +63,7 @@ def movie_detail(request, movie_id):
             'vote_count': movie_data.get('vote_count'),
             'popularity': movie_data.get('popularity'),
             'runtime': movie_data.get('runtime'),
+             'IMAGE_BASE_URL': 'https://image.tmdb.org/t/p/',
         }
     )
 
@@ -161,3 +166,30 @@ def watchlist(request):
         'watchlist_movies': [item.movie for item in watchlist_movies],
     }
     return render(request, 'watchlist.html', context)
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
