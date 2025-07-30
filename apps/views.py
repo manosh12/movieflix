@@ -22,18 +22,15 @@ import json
 def home(request):
 
     # Get Movies Data
-    trending_movies = get_trending_movies().get('results', [])[:12]
-    popular_movies = get_popular_movies().get('results', [])[:12]
-    upcoming_movies = get_upcoming_movies().get('results', [])[:12]
-    top_rated_movies = get_top_rated_movies().get('results', [])[:12]
+    trending_movies = get_trending_movies().get('results')
+    popular_movies = get_popular_movies().get('results')
+    upcoming_movies = get_upcoming_movies().get('results')
+    top_rated_movies = get_top_rated_movies().get('results')
 
-    print("trending movies count: ", len(trending_movies))
     # Get TV Shows Data
-    trending_tv_shows = get_trending_tv_shows().get('results', [])[:12]
-    popular_tv_shows = get_popular_tv_shows().get('results', [])[:12]
-    top_rated_tv_shows = get_top_rated_tv_shows().get('results', [])[:12]
-
-    print("movies data:", trending_movies)
+    trending_tv_shows = get_trending_tv_shows().get('results')
+    popular_tv_shows = get_popular_tv_shows().get('results')
+    top_rated_tv_shows = get_top_rated_tv_shows().get('results')
 
     context = {
         'trending_movies': trending_movies,

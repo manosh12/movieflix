@@ -1,0 +1,5 @@
+Django==5.2.4
+python-dotenv==1.0.1
+django-unfold==0.18.1
+requests==2.31.0
+Pillow==10.3.0
