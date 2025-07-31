@@ -1,0 +1,62 @@
+2025-07-31 13:49:44,975 [INFO] django.utils.autoreload:667 - Watching for file changes with StatReloader
+2025-07-31 13:49:46,350 [INFO] django.utils.autoreload:265 - C:\workSpace\personal\movies\config\settings.py changed, reloading.
+2025-07-31 13:49:46,899 [INFO] django.utils.autoreload:667 - Watching for file changes with StatReloader
+2025-07-31 13:49:48,274 [INFO] django.utils.autoreload:265 - C:\workSpace\personal\movies\config\settings.py changed, reloading.
+2025-07-31 13:49:48,816 [INFO] django.utils.autoreload:667 - Watching for file changes with StatReloader
+2025-07-31 13:51:08,432 [INFO] django.utils.autoreload:265 - C:\workSpace\personal\movies\config\settings.py changed, reloading.
+2025-07-31 13:52:47,570 [INFO] django.utils.autoreload:667 - Watching for file changes with StatReloader
+2025-07-31 13:52:58,663 [INFO] django.server:213 - "GET /home/ HTTP/1.1" 200 291809
+2025-07-31 13:53:10,279 [INFO] django.server:213 - "GET /home/ HTTP/1.1" 200 291809
+2025-07-31 13:53:14,790 [INFO] django.server:213 - "GET /movie/617126/ HTTP/1.1" 200 103771
+2025-07-31 13:53:20,140 [INFO] django.server:213 - "GET /home/ HTTP/1.1" 200 291809
+2025-07-31 13:53:39,072 [INFO] django.utils.autoreload:265 - C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+2025-07-31 13:53:39,499 [INFO] django.utils.autoreload:667 - Watching for file changes with StatReloader
+2025-07-31 13:53:41,891 [INFO] django.utils.autoreload:265 - C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+2025-07-31 13:53:42,338 [INFO] django.utils.autoreload:667 - Watching for file changes with StatReloader
+2025-07-31 13:53:50,166 [INFO] django.server:213 - "GET /home/ HTTP/1.1" 200 291809
+2025-07-31 13:54:20,556 [INFO] django.utils.autoreload:265 - C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+2025-07-31 13:54:21,046 [INFO] django.utils.autoreload:667 - Watching for file changes with StatReloader
+2025-07-31 13:54:52,915 [INFO] django.utils.autoreload:265 - C:\workSpace\personal\movies\config\settings.py changed, reloading.
+INFO 2025-07-31 13:54:53,485 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:54:53,485 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:54:54,878 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\config\settings.py changed, reloading.
+INFO 2025-07-31 13:54:54,878 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\config\settings.py changed, reloading.
+INFO 2025-07-31 13:54:55,433 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:54:55,433 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:03,949 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\config\settings.py changed, reloading.
+INFO 2025-07-31 13:55:03,949 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\config\settings.py changed, reloading.
+INFO 2025-07-31 13:55:04,511 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:04,511 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:08,964 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\config\settings.py changed, reloading.
+INFO 2025-07-31 13:55:08,964 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\config\settings.py changed, reloading.
+INFO 2025-07-31 13:55:09,529 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:09,529 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:29,207 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:55:29,207 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:55:29,760 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:29,760 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:31,130 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:55:31,130 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:55:31,662 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:31,662 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:55:39,446 basehttp:213 django.server "GET /home/ HTTP/1.1" 200 291809
+INFO 2025-07-31 13:55:39,446 basehttp:213 django.server "GET /home/ HTTP/1.1" 200 291809
+INFO 2025-07-31 13:56:07,856 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:56:07,856 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:56:08,399 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:56:08,399 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:56:09,789 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:56:09,789 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:56:10,331 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:56:10,331 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+ERROR 2025-07-31 13:56:15,249 views:42 apps.movie.views trending_movies
+INFO 2025-07-31 13:56:15,273 basehttp:213 django.server "GET /home/ HTTP/1.1" 200 291809
+INFO 2025-07-31 13:56:15,273 basehttp:213 django.server "GET /home/ HTTP/1.1" 200 291809
+WARNING 2025-07-31 13:56:15,830 log:253 django.request Not Found: /favicon.ico
+WARNING 2025-07-31 13:56:15,830 log:253 django.request Not Found: /favicon.ico
+WARNING 2025-07-31 13:56:15,830 basehttp:213 django.server "GET /favicon.ico HTTP/1.1" 404 4333
+WARNING 2025-07-31 13:56:15,830 basehttp:213 django.server "GET /favicon.ico HTTP/1.1" 404 4333
+INFO 2025-07-31 13:56:28,240 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:56:28,240 autoreload:265 django.utils.autoreload C:\workSpace\personal\movies\apps\movie\views.py changed, reloading.
+INFO 2025-07-31 13:56:28,768 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader
+INFO 2025-07-31 13:56:28,768 autoreload:667 django.utils.autoreload Watching for file changes with StatReloader

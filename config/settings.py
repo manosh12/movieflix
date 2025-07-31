@@ -10,11 +10,59 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+LOG_DIR = os.path.join(BASE_DIR, 'logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module}:{lineno} {name} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "file": {
+            "level": "INFO",
+            "class": "logging.handlers.TimedRotatingFileHandler",
+            "filename": os.path.join(LOG_DIR, "django.log"),
+            "when": "midnight",
+            "interval": 1,
+            "backupCount": 7,
+            "formatter": "verbose",
+            "delay": True
+        },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["file", "console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        "apps": {
+            "handlers": ["file", "console"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+    "root": {
+        "handlers": ["file", "console"],
+        "level": "INFO",
+    },
+}
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,7 +87,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps',
+
+    # apps
+    'apps.dashboard',
+    'apps.movie',
+
+    #extensions
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +111,8 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,7 +121,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 # global variables
-                'apps.context_processors.global_variables',
+                'apps.movie.context_processors.global_variables',
             ],
         },
     },
@@ -104,17 +159,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
 # Unfold admin theme settings
 UNFOLD = {
-    "SITE_TITLE": "My Admin Panel",
-    "SITE_HEADER": "MOVIES",
-    "SITE_URL": "/",
-    "SITE_ICON": {
-        "light": lambda request: "/static/logo-light.svg",
-        "dark": lambda request: "/static/logo-dark.svg",
-    },
+    "SITE_TITLE": os.getenv("APP_NAME", "MOVIESFLIX"),
+    "SITE_HEADER": os.getenv("COMPANY_NAME", "MOVIESFLIX"),
+    "SITE_SUBHEADER": "MOVIESFLIX",
+    "SITE_INDEX_TITLE": "Movie",
+    "SITE_SYMBOL": "speed",
+    "SHOW_BACK_BUTTON": True,
+    "DASHBOARD_CALLBACK": "apps.dashboard.views.dashboard_callback",
+    # "SITE_ICON": {
+    #     "light": lambda request: "/static/logo-light.svg",
+    #     "dark": lambda request: "/static/logo-dark.svg",
+    # },
     "COLORS": {
         "primary": {
             "50": "250 245 255",
@@ -159,17 +216,21 @@ UNFOLD = {
                 {
                     "title": "Movies",
                     "icon": "movie_filter",
-                    "link": "/admin/apps/movie/",
+                    "link": reverse_lazy("admin:movie_movie_changelist"),
+                    "permission": lambda request: request.user.has_perm("movie.view_movie"),
+
                 },
                 {
                     "title": "Watchlist",
                     "icon": "list",
-                    "link": "/admin/apps/watchlist/",
+                    "link": reverse_lazy("admin:movie_watchlist_changelist"),
+                    "permission": lambda request: request.user.has_perm("movie.view_watchlist"),
                 },
                 {
                     "title": "Genres",
                     "icon": "category",
-                    "link": "/admin/apps/genre/",
+                    "link": reverse_lazy("admin:movie_genre_changelist"),
+                    "permission": lambda request: request.user.has_perm("movie.view_genre"),
                 },
             ],
         },
@@ -196,17 +257,21 @@ UNFOLD = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

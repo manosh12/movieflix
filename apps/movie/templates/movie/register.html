@@ -1,0 +1,53 @@
+{% extends 'movie/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-16 flex justify-center">
+    <div class="w-full max-w-md">
+        <h1 class="text-3xl font-bold mb-8 text-center">Register</h1>
+
+        <form method="post" class="bg-gray-800 p-8 rounded-lg shadow-lg">
+            {% csrf_token %}
+
+            {% if form.errors %}
+            <div class="mb-4 p-4 bg-red-900 text-white rounded">
+                Please correct the errors below.
+            </div>
+            {% endif %}
+
+            <div class="mb-4">
+                <label class="block text-gray-300 mb-2" for="id_username">Username</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                <p class="text-red-400 text-sm mt-1">{{ form.username.errors.as_text }}</p>
+                {% endif %}
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-300 mb-2" for="id_password1">Password</label>
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                <p class="text-red-400 text-sm mt-1">{{ form.password1.errors.as_text }}</p>
+                {% endif %}
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-300 mb-2" for="id_password2">Password Confirmation</label>
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                <p class="text-red-400 text-sm mt-1">{{ form.password2.errors.as_text }}</p>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded">
+                Register
+            </button>
+
+            <p class="mt-4 text-center text-gray-400">
+                Already have an account? <a href="{% url 'login' %}" class="text-red-400 hover:underline">Login</a>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock %}
